@@ -3,7 +3,6 @@
 function newItem() {
     let inputValue = $('#input').val();
 
-
     if (inputValue === '') {
         alert("You must write something!");
     } else {
@@ -22,22 +21,15 @@ function newItem() {
 
     }
 
-    $(document).on("dblclick", "li", crossOut);
+    $(document).on("dblclick", "li", deleteListItem);
 
     // 3(i). Adding the delete button "X": 
-    let crossOutButton = $('<button>X</button>');
-    crossOutButton.on("click", deleteListItem);
-    crossOutButton.on("click", crossOutButton);
-
-    $('#list').append(crossOutButton);
+    // Inside the 'else' block
 
     // 3(ii). Adding CLASS DELETE (DISPLAY: NONE) from the css:
     function deleteListItem() {
         $(this).parent().addClass("delete");
     }
-
-    // 4. Reordering the items: 
-    $('#list').sortable();
-
 }
-    }
+// 4. Reordering the items: 
+$('#list').sortable();
